@@ -19,7 +19,6 @@ function makeUser(name, age) {
   };
 }
 
-<<<<<<< HEAD
 let user = makeUser("John", 30);
 alert(user.name); // John
 
@@ -103,12 +102,3 @@ multiplyNumeric(numbers);
 for (let prop in numbers) {
   alert(numbers[prop]);
 }
-=======
-wiadomosc("Dominik", "dzien dobry");
-
-function wiadomosc(from, text = "nic nie podales") {
-  alert(from + ": " + text);
-}
-
-wiadomosc("Dominik", "dzien dobry");
->>>>>>> a97d082e5b6c2ff9698f841f8a09c5fba7647f68
