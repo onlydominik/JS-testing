@@ -86,7 +86,7 @@ function isEmpty(obj) {
   return sum;
 }
 alert(isEmpty(schedule));
-*/
+
 //challenge 3
 let numbers = {
   one: 2,
@@ -102,3 +102,4 @@ multiplyNumeric(numbers);
 for (let prop in numbers) {
   alert(numbers[prop]);
 }
+*/
