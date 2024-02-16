@@ -35,7 +35,7 @@ let ladder = {
 };
 ladder.up().up().down().showStep().down().showStep();
 */
-//challenge 3
+//challenge 34
 let ladder = {
   step: 0,
   up() {
@@ -50,3 +50,4 @@ let ladder = {
   },
 };
 ladder.up().up().down().showStep().down().showStep();
+//NEW CHALLENGE NEW FILE
