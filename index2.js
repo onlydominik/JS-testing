@@ -98,7 +98,7 @@ alert("Sum=" + calculator.sum());
 alert("Mul=" + calculator.mul());
 */
 
-//NEW
+//NEW challenges
 function Accumulator(startingValue) {
   this.value = startingValue;
 
@@ -114,3 +114,7 @@ accumulator.read(); // adds the user-entered value
 accumulator.read(); // adds the user-entered value
 
 alert(accumulator.value); // shows the sum of these values
+
+calculator.read();
+alert(calculator.sum());
+alert(calculator.mul());
