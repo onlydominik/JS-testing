@@ -98,7 +98,7 @@ alert("Sum=" + calculator.sum());
 alert("Mul=" + calculator.mul());
 
 
-//NEW
+//NEW challenges
 function Accumulator(startingValue) {
   this.value = startingValue;
 
@@ -141,3 +141,7 @@ let obj = {
 let numZbazy = Number(obj);
 let numZbazy2 = +obj;
 alert(obj[Symbol.toPrimitive]("cos"));
+
+calculator.read();
+alert(calculator.sum());
+alert(calculator.mul());
