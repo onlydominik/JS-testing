@@ -96,7 +96,7 @@ calculator.read();
 
 alert("Sum=" + calculator.sum());
 alert("Mul=" + calculator.mul());
-*/
+
 
 //NEW
 function Accumulator(startingValue) {
@@ -114,3 +114,30 @@ accumulator.read(); // adds the user-entered value
 accumulator.read(); // adds the user-entered value
 
 alert(accumulator.value); // shows the sum of these values
+
+//NEW SYMBOL
+let id = Symbol("id");
+
+let obj = {
+  name: "John",
+  id: 123, // not "id": 123
+};
+
+// using object as a property key
+// output
+
+let anotherObj = {};
+anotherObj[obj] = obj;
+alert(anotherObj[obj]);
+let numer = Number(obj);
+alert(numer);
+*/
+//OBJECT CONVERTING
+
+let obj = {
+  num: 123,
+};
+
+let numZbazy = Number(obj);
+let numZbazy2 = +obj;
+alert(obj[Symbol.toPrimitive]("cos"));
