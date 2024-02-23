@@ -131,7 +131,22 @@ anotherObj[obj] = obj;
 alert(anotherObj[obj]);
 let numer = Number(obj);
 alert(numer);
+
+//OBJECT CONVERTING
+
+let obj = {
+  num: 123,
+};
+
+let numZbazy = Number(obj);
+let numZbazy2 = +obj;
+alert(obj[Symbol.toPrimitive]("cos"));
+
+calculator.read();
+alert(calculator.sum());
+alert(calculator.mul());
 */
+
 //OBJECT CONVERTING
 
 let obj = {
