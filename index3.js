@@ -25,7 +25,7 @@ function readNumber() {
 }
 
 alert(`Read: ${readNumber()}`);
-*/
+
 //3 random numbers
 
 let newRandom = function (min, max) {
@@ -33,3 +33,15 @@ let newRandom = function (min, max) {
 };
 
 alert(newRandom(5, 10));
+
+let newRandom = function (min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+alert(newRandom(5, 10));
+let newRandom = function (min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+*/
+alert(newRandom(5, 10));
+//newest challenges on local folders
