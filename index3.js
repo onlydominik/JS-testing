@@ -77,8 +77,10 @@ let truncate = function (str, maxlength) {
 };
 
 truncate("heeeeeeeejka", 8);
-*/
+
 let extractCurrencyValue = function (str) {
   return Number(str.substring(1));
 };
 alert(extractCurrencyValue("$120") === 120);
+*/
+alert(0.1 + 0.2 == 0.3);
