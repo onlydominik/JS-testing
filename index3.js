@@ -82,5 +82,41 @@ let extractCurrencyValue = function (str) {
   return Number(str.substring(1));
 };
 alert(extractCurrencyValue("$120") === 120);
-*/
+
 alert(0.1 + 0.2 == 0.3);
+
+let testArray = ["Jazz", "Blues"];
+testArray.push("Roc-and-Roll");
+if (testArray.length % 2 == 1) {
+  testArray[testArray.length / 2 - 0.5] = "Classics"; //or Math.floor for removing 0.5 
+}
+alert(testArray.length % 2 == 1);
+alert(testArray[1]);
+alert(testArray.shift());
+alert(testArray);
+testArray.unshift("Rap", "Reggae");
+alert(testArray);
+
+function sumInput() {
+
+  let numbers = [];
+
+  while (true) {
+
+    let value = prompt("A number please?", 0);
+
+    // should we cancel?
+    if (value === "" || value === null || !isFinite(value)) break;
+
+    numbers.push(+value);
+  }
+
+  let sum = 0;
+  for (let number of numbers) {
+    sum += number;
+  }
+  return sum;
+}
+
+alert( sumInput() );
+*/
