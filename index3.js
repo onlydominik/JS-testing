@@ -145,7 +145,7 @@ let camelize = (str) => {
 };
 
 alert(camelize("cos-jest-tam"));
-*/
+
 //next
 let arr = [5, 3, 8, 1];
 
@@ -153,3 +153,38 @@ let filterRange = (arr, a, b) => {
   return arr.filter((element) => element >= a && element <= b);
 };
 alert(filterRange(arr, 1, 4));
+
+
+//next
+
+let filterRangeInPlace = (arr, a, b) => {
+  for (i = 0; i < arr.length; i++) {
+    if (!(a <= arr[i] && arr[i] <= b)) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+};
+
+let arr = [5, 3, 8, 1];
+
+filterRangeInPlace(arr, 2, 4); // removed the numbers except from 1 to 4
+
+alert(arr);
+
+//next
+let arr = [5, 2, 1, -10, 8];
+
+arr.sort((a, b) => b - a);
+
+alert(arr);
+*/
+//next
+let arr = ["HTML", "JavaScript", "CSS"];
+
+let copySorted = (arr) => {
+  let newArr = arr.slice();
+  return alert(newArr.sort((a, b) => a.localeCompare(b)));
+};
+
+copySorted(arr);
