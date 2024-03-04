@@ -119,4 +119,37 @@ function sumInput() {
 }
 
 alert( sumInput() );
+
+//ARRAY METHODS EXERCISES
+let camelize = function (str) {
+  let array = str.split(`-`);
+  array = array.map((str, index) => {
+    if (index > 0) return str[0].toUpperCase() + str.slice(1);
+    else return str;
+  });
+  array = array.join(``);
+  alert(array);
+};
+
+camelize("cos-jest-tam");
+
+//simplification
+
+let camelize = (str) => {
+  return str
+    .split(`-`)
+    .map((str, index) =>
+      index == 0 ? str : str[0].toUpperCase() + str.slice(1)
+    )
+    .join(``);
+};
+
+alert(camelize("cos-jest-tam"));
 */
+//next
+let arr = [5, 3, 8, 1];
+
+let filterRange = (arr, a, b) => {
+  return arr.filter((element) => element >= a && element <= b);
+};
+alert(filterRange(arr, 1, 4));
