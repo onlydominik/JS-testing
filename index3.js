@@ -178,7 +178,7 @@ let arr = [5, 2, 1, -10, 8];
 arr.sort((a, b) => b - a);
 
 alert(arr);
-*/
+
 //next
 let arr = ["HTML", "JavaScript", "CSS"];
 
@@ -188,3 +188,100 @@ let copySorted = (arr) => {
 };
 
 copySorted(arr);
+
+//extendable calculator
+
+let Calculator = function () {
+  this.methods = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
+  };
+
+  this.calculate = (str) => {
+    let newStr = str.split(" ");
+    a = +newStr[0];
+    b = +newStr[2];
+    op = newStr[1];
+
+    return this.methods[op](a, b);
+  };
+
+  this.addMethod = (name, func) => {
+    this.methods[name] = func;
+  };
+};
+let cos = new Calculator();
+
+alert(cos.calculate("54 - 24"));
+cos.addMethod("*", (a, b) => a * b);
+alert(cos.methods["*"]);
+
+//map to names
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [john, pete, mary];
+
+let name = users.map((item) => item.name);
+
+alert(name);
+
+//next
+let john = { name: "John", surname: "Smith", id: 1 };
+let pete = { name: "Pete", surname: "Hunt", id: 2 };
+let mary = { name: "Mary", surname: "Key", id: 3 };
+
+let users = [john, pete, mary];
+
+let newArray = users.map((item) => ({
+  fullName: `${item.name} ${item.surname}`,
+  id: `${item.id}`,
+}));
+
+alert(newArray[0].fullName);
+
+//sort by age
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let arr = [pete, john, mary];
+
+let sortByAge = (arr) => {
+  arr.sort((a, b) => a.age - b.age);
+};
+
+sortByAge(arr);
+alert(arr[0].name);
+*/
+//shuffle an array
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+let array = [1, 2, 3];
+let shuffle = (array) => {
+  return array.map((item, index) => (item[index] = getRandomInt(array.length)));
+};
+
+alert(shuffle(array));
+alert(shuffle(array));
+let count = {
+  123: 0,
+  132: 0,
+  213: 0,
+  231: 0,
+  321: 0,
+  312: 0,
+};
+
+for (let i = 0; i < 1000000; i++) {
+  let array = [1, 2, 3];
+  shuffle(array);
+  count[array.join("")]++;
+}
+
+// show counts of all possible permutations
+for (let key in count) {
+  alert(`${key}: ${count[key]}`);
+}
