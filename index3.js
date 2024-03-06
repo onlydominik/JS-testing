@@ -254,7 +254,7 @@ let sortByAge = (arr) => {
 
 sortByAge(arr);
 alert(arr[0].name);
-*/
+
 //shuffle an array
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -264,24 +264,43 @@ let shuffle = (array) => {
   return array.map((item, index) => (item[index] = getRandomInt(array.length)));
 };
 
-alert(shuffle(array));
-alert(shuffle(array));
-let count = {
-  123: 0,
-  132: 0,
-  213: 0,
-  231: 0,
-  321: 0,
-  312: 0,
+//next
+let strings = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+let unique = (arr) => {
+  let newArray = [];
+  for (let item of arr) {
+    if (!newArray.includes(item)) newArray.push(item);
+  }
+  return newArray;
 };
 
-for (let i = 0; i < 1000000; i++) {
-  let array = [1, 2, 3];
-  shuffle(array);
-  count[array.join("")]++;
-}
+alert(unique(strings));
 
-// show counts of all possible permutations
-for (let key in count) {
-  alert(`${key}: ${count[key]}`);
+//next
+function groupById(array) {
+  return array.reduce((obj, value) => {
+    obj[value.id] = value;
+    return obj;
+  }, {});
 }
+let users = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "ann", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Peterson", age: 31 },
+];
+
+let usersById = groupById(users);
+alert(usersById.john.id);
+*/
+//NEXT
