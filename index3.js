@@ -308,7 +308,7 @@ alert(usersById.john.id);
 function unique(arr) {
   return Array.from(new Set(arr));
 }
-*/
+
 
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
@@ -323,3 +323,13 @@ function aclean(arr) {
 }
 
 alert(aclean(arr));
+*/
+//new problem to solve
+
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+keys.push("Cos");
+alert(keys);
