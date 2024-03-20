@@ -323,7 +323,7 @@ function aclean(arr) {
 }
 
 alert(aclean(arr));
-*/
+
 //new problem to solve
 
 let map = new Map();
@@ -333,3 +333,56 @@ map.set("name", "John");
 let keys = Array.from(map.keys());
 keys.push("Cos");
 alert(keys);
+
+//weak map
+let visitsCountMap = new Map();
+user = {};
+function countUser(user) {
+  console.log(visitsCountMap.get(user));
+}
+countUser(user);
+
+//object manipulation
+let salaries = {
+  John: 100,
+  Pete: 300,
+  Mary: 250,
+};
+
+function sumSalaries(salaries) {
+  let sum = 0;
+  for (let value of Object.values(salaries)) {
+    sum += value;
+  }
+  return sum;
+}
+
+alert(sumSalaries(salaries));
+
+
+//count properties
+let user = {
+  name: "John",
+  age: 30,
+};
+
+function count(obj) {
+  let count = 0;
+  for (let prop of Object.entries(obj)) {
+    count++;
+  }
+  return count;
+}
+
+alert(count(user)); // 2
+*/
+//or short
+let user = {
+  name: "John",
+  age: 30,
+};
+
+function count(obj) {
+  return Object.entries(obj).length;
+}
+alert(count(user)); // 2
