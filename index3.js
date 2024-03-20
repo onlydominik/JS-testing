@@ -302,10 +302,24 @@ let users = [
 
 let usersById = groupById(users);
 alert(usersById.john.id);
+
+//Filter unique array members
+
+function unique(arr) {
+  return Array.from(new Set(arr));
+}
 */
-//NEXT
-let users = [
-  { id: "john", name: "John Smith", age: 20 },
-  { id: "ann", name: "Ann Smith", age: 24 },
-  { id: "pete", name: "Pete Peterson", age: 31 },
-];
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+function aclean(arr) {
+  let map = new Map();
+  for (let word of arr) {
+    let wordNormalized = word.toLowerCase().split("").sort().join("");
+
+    map.set(wordNormalized, word);
+  }
+  return Array.from(map.values());
+}
+
+alert(aclean(arr));
