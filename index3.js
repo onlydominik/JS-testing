@@ -506,7 +506,7 @@ let user = {
 
 let jsonParse = JSON.parse(JSON.stringify(user));
 alert(jsonParse); //object
-*/
+
 //next
 
 let room = {
@@ -529,3 +529,6 @@ let cos = JSON.stringify(meetup, function replacer(key, value) {
 });
 
 console.log(cos);
+*/
+
+//recursive
