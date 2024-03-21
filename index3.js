@@ -396,7 +396,7 @@ let { name, years: age, isAdmin = false } = user;
 alert(name); // John
 alert(age); // 30
 alert(isAdmin); // false
-*/
+
 //next
 let salaries = {};
 
@@ -415,3 +415,117 @@ function topSalary(salaries) {
 }
 
 topSalary(salaries);
+
+//date
+let d1 = new Date(2012, 1, 20, 3, 12);
+alert(d1);
+
+let d2 = new Date("2012-02-20T03:12");
+alert( d2 );
+
+function getWeekDay(date) {
+  let days = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+  return days[date.getDay()];
+}
+
+let date = new Date(2014, 0, 3); // 3 Jan 2012
+alert(getWeekDay(date));
+alert(date.getDay());
+
+// next
+let date = new Date(2015, 0, 2);
+
+function getDateAgo(date, days) {
+  return new Date(date.getTime() - days * 86400000);
+}
+
+alert(getDateAgo(date, 1)); // 1, (1 Jan 2015)
+alert(getDateAgo(date, 2)); // 31, (31 Dec 2014)
+alert(getDateAgo(date, 365)); // 2, (2 Jan 2014)
+
+//or
+let date = new Date(2015, 0, 2);
+function getDateAgo(date, days) {
+  dateClone = new Date(date);
+
+  dateClone.setDate(dateClone.getDate() - days);
+  return dateClone.getDate();
+}
+
+alert(getDateAgo(date, 1)); // 1, (1 Jan 2015)
+alert(getDateAgo(date, 2)); // 31, (31 Dec 2014)
+alert(getDateAgo(date, 365)); // 2, (2 Jan 2014)
+
+//next
+
+function getSecondsToday() {
+  let date = new Date();
+  let datakopia = new Date();
+  let nowa = new Date(datakopia.setHours(2));
+  alert(date.getHours() * 3600);
+}
+
+getSecondsToday();
+
+//JSON TASKS
+let user = {
+  name: "John",
+  age: 30,
+
+  toString() {
+    return `{name: "${this.name}", age: ${this.age}}`;
+  },
+
+  cos() {
+    return "cos";
+  },
+};
+
+alert(user.cos()); // {name: "John", age: 30}
+
+let student = {
+  name: "John",
+  age: 30,
+  isAdmin: false,
+  courses: ["html", "css", "js"],
+  spouse: null,
+};
+
+let json = JSON.stringify(student);
+
+alert(typeof json); // we've got a string!
+
+alert(json);
+
+//task
+
+let user = {
+  name: "John Smith",
+  age: 35,
+};
+
+let jsonParse = JSON.parse(JSON.stringify(user));
+alert(jsonParse); //object
+*/
+//next
+
+let room = {
+  number: 23,
+};
+
+let meetup = {
+  title: "Conference",
+  occupiedBy: [{ name: "John" }, { name: "Alice" }],
+  place: room,
+};
+
+// circular references
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+let cos = JSON.stringify(meetup, function replacer(key, value) {
+  if (key && value == meetup) return key;
+  return value;
+});
+
+console.log(cos);
