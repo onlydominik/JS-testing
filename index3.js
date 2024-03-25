@@ -568,18 +568,20 @@ function sumTo(n) {
 }
 
 alert(sumTo(4));
-*/
+
 //recursion
 
 function sumTo(n) {
-  let sum = 0;
-  if (n == 1) {
-    return (sum += n);
-  } else {
-    alert(sum);
-    sum += n;
-    sumTo(n - 1);
-  }
+  if (n == 1) return 1;
+  return n + sumTo(n - 1);
 }
 
-alert(sumTo(4));
+alert( sumTo(100) );
+*/
+
+function factorial(n) {
+  if (n == 1) return 1;
+  return n * factorial(n - 1);
+}
+
+alert(factorial(5));
