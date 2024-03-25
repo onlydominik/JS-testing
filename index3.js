@@ -529,7 +529,7 @@ let cos = JSON.stringify(meetup, function replacer(key, value) {
 });
 
 console.log(cos);
-*/
+
 
 //recursive
 
@@ -558,3 +558,28 @@ let cos = JSON.stringify(meetup, function replacer(key, value) {
 console.log(cos);
 
 //new exercises on website
+
+function sumTo(n) {
+  let sum = 0;
+  for (let i = n; i > 0; i--) {
+    sum += i;
+  }
+  return sum;
+}
+
+alert(sumTo(4));
+*/
+//recursion
+
+function sumTo(n) {
+  let sum = 0;
+  if (n == 1) {
+    return (sum += n);
+  } else {
+    alert(sum);
+    sum += n;
+    sumTo(n - 1);
+  }
+}
+
+alert(sumTo(4));
