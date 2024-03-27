@@ -577,7 +577,7 @@ function sumTo(n) {
 }
 
 alert( sumTo(100) );
-*/
+
 
 function factorial(n) {
   if (n == 1) return 1;
@@ -585,3 +585,40 @@ function factorial(n) {
 }
 
 alert(factorial(5));
+*/
+//fibonacci
+
+function fib(n) {
+let sum = 0;
+
+sum = 
+
+}
+
+alert(sumTo(4));
+
+//recursion
+
+function sumTo(n) {
+  if (n == 1) return 1;
+  return n + sumTo(n - 1);
+}
+
+alert( sumTo(100) );
+
+
+function factorial(n) {
+  if (n == 1) return 1;
+  return n * factorial(n - 1);
+}
+
+alert(factorial(5));
+*/
+//fibonacci
+
+function fib(n) {
+let sum = 0;
+
+sum = 
+
+}
