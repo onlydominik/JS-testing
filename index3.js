@@ -586,39 +586,11 @@ function factorial(n) {
 
 alert(factorial(5));
 */
-//fibonacci
+//DOM js children
+let div1 = document.body.firstChild;
+alert(div1);
 
-function fib(n) {
-let sum = 0;
+let ul1 = document.body.children[1];
 
-sum = 
-
-}
-
-alert(sumTo(4));
-
-//recursion
-
-function sumTo(n) {
-  if (n == 1) return 1;
-  return n + sumTo(n - 1);
-}
-
-alert( sumTo(100) );
-
-
-function factorial(n) {
-  if (n == 1) return 1;
-  return n * factorial(n - 1);
-}
-
-alert(factorial(5));
-*/
-//fibonacci
-
-function fib(n) {
-let sum = 0;
-
-sum = 
-
-}
+let li1 = document.body.children[1].children[1];
+li1.style.background = "red";
