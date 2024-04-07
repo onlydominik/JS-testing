@@ -624,3 +624,15 @@ console.log(cos);
 
 //new exercises on website
 \
+
+meetup.self = meetup;
+
+let cos = JSON.stringify(meetup, function replacer(key, value) {
+  if (key && value == meetup) return key;
+  return value;
+});
+
+console.log(cos);
+
+//new exercises on website
+\
