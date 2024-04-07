@@ -597,25 +597,30 @@ li1.style.background = "red";
 */
 //color table cell
 
-let table = document.body.firstElementChild;
-for (let i = 0; i < table.rows.length; i++) {
-  table.rows[i].cells[i].style.background = "red";
+
 }
+meetup.self = meetup;
 
-alert(factorial(5));
+let cos = JSON.stringify(meetup, function replacer(key, value) {
+  if (key && value == meetup) return key;
+  return value;
+});
 
-//DOM js children
-let div1 = document.body.firstChild;
-alert(div1);
+console.log(cos);
 
-let ul1 = document.body.children[1];
 
-let li1 = document.body.children[1].children[1];
-li1.style.background = "red";
-*/
-//color table cell
+//recursive
 
-let table = document.body.firstElementChild;
-for (let i = 0; i < table.rows.length; i++) {
-  table.rows[i].cells[i].style.background = "red";
-}
+// circular references
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+let cos = JSON.stringify(meetup, function replacer(key, value) {
+  if (key && value == meetup) return key;
+  return value;
+});
+
+console.log(cos);
+
+//new exercises on website
+\
