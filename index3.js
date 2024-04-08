@@ -594,45 +594,54 @@ let ul1 = document.body.children[1];
 
 let li1 = document.body.children[1].children[1];
 li1.style.background = "red";
-*/
-//color table cell
 
+//closure
+function makeCounter() {
+  let count = 1;
 
+  return function () {
+    return count++;
+  };
 }
-meetup.self = meetup;
 
-let cos = JSON.stringify(meetup, function replacer(key, value) {
-  if (key && value == meetup) return key;
-  return value;
-});
+let counter = makeCounter();
 
-console.log(cos);
+alert(counter());
+alert(counter());
+alert(counter());
 
+function f() {
+  let value = Math.random();
 
-//recursive
+  return function () {
+    alert(value);
+    value++;
+  };
+}
 
-// circular references
-room.occupiedBy = meetup;
-meetup.self = meetup;
+// 3 functions in array, every one of them links to Lexical Environment
+// from the corresponding f() run
+let cos = f();
+alert(cos());
+alert(cos());
+alert(cos());
+*/
 
-let cos = JSON.stringify(meetup, function replacer(key, value) {
-  if (key && value == meetup) return key;
-  return value;
-});
+function Counter() {
+  let count = 0;
 
-console.log(cos);
+  this.up = function () {
+    return ++count;
+  };
 
-//new exercises on website
-\
+  this.down = function () {
+    return --count;
+  };
 
-meetup.self = meetup;
+  return function () {
+    return ++count;
+  };
+}
+alert(Counter()); // 1
 
-let cos = JSON.stringify(meetup, function replacer(key, value) {
-  if (key && value == meetup) return key;
-  return value;
-});
-
-console.log(cos);
-
-//new exercises on website
-\
+alert(Counter.down()); // 1
