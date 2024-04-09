@@ -701,7 +701,19 @@ let div = document.querySelector("div");
 // replace div.outerHTML with <p>...</p>
 div.innerHTML = "<p>A new element</p>"; // (*)
 
-*/
+
 for (let li of document.querySelectorAll("li")) {
   let title = li.firstChild.data;
 }
+
+
+let input = document.querySelector("input");
+alert(input.id);
+// attribute => property
+input.setAttribute("id", "id");
+alert(input.id); // id (updated)
+
+// property => attribute
+input.id = "newId";
+alert(input.getAttribute("id")); // newId (updated)
+*/
