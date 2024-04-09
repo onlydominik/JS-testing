@@ -678,7 +678,7 @@ function inArray(arr) {
 let arr = [1, 2, 3, 4, 5, 6, 7];
 alert( arr.filter(inArray([1, 2, 10])) ); // 1,2
 
-*/
+
 //sort with enclosure
 function byField(field) {
   return function (a, b) {
@@ -695,3 +695,13 @@ users.sort(byField("name"));
 users.sort(byField("age"));
 
 alert(users);
+
+let div = document.querySelector("div");
+
+// replace div.outerHTML with <p>...</p>
+div.innerHTML = "<p>A new element</p>"; // (*)
+
+*/
+for (let li of document.querySelectorAll("li")) {
+  let title = li.firstChild.data;
+}
