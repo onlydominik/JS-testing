@@ -717,3 +717,20 @@ alert(input.id); // id (updated)
 input.id = "newId";
 alert(input.getAttribute("id")); // newId (updated)
 */
+
+//create a list
+let ul = document.createElement("ul");
+document.body.append(ul);
+
+while (true) {
+  let userText = prompt("Podaj jakąś wartość");
+
+  if (!userText) break;
+
+  let li = document.createElement("li");
+  li.textContent = userText;
+  ul.append(li);
+}
+
+//ul.innerHTML = "<li>" + ulList.join() + "<li>";
+//document.body.append(ul);
