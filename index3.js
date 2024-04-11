@@ -716,7 +716,7 @@ alert(input.id); // id (updated)
 // property => attribute
 input.id = "newId";
 alert(input.getAttribute("id")); // newId (updated)
-*/
+
 
 //create a list
 let ul = document.createElement("ul");
@@ -732,5 +732,135 @@ while (true) {
   ul.append(li);
 }
 
-//ul.innerHTML = "<li>" + ulList.join() + "<li>";
-//document.body.append(ul);
+*/
+
+};
+}
+
+let counter = makeCounter();
+
+alert(counter());
+alert(counter());
+alert(counter());
+
+function f() {
+  let value = Math.random();
+
+  return function () {
+    alert(value);
+    value++;
+  };
+}
+
+// 3 functions in array, every one of them links to Lexical Environment
+// from the corresponding f() run
+let cos = f();
+alert(cos());
+alert(cos());
+alert(cos());
+
+
+function Counter() {
+  let count = 0;
+
+  this.up = function () {
+    return ++count;
+  };
+
+  this.down = function () {
+    return --count;
+  };
+
+  return function () {
+    return ++count;
+  };
+}
+alert(Counter()); // 1
+
+alert(Counter.down()); // 1
+
+//sum with closure
+
+function sum(a) {
+  return function (b) {
+    return a + b;
+  };
+}
+
+alert(sum(5)(5));
+
+//filter through function
+
+function inBetween(a, b) {
+  return function(x) {
+    return x >= a && x <= b;
+  };
+}
+
+let arr = [1, 2, 3, 4, 5, 6, 7];
+alert( arr.filter(inBetween(3, 6)) );
+
+
+function inArray(arr) {
+  return function(x) {
+    return arr.includes(x);
+  };
+}
+
+
+let arr = [1, 2, 3, 4, 5, 6, 7];
+alert( arr.filter(inArray([1, 2, 10])) ); // 1,2
+
+
+//sort with enclosure
+function byField(field) {
+  return function (a, b) {
+    return a[field] > b[field] ? 1 : -1;
+  };
+}
+let users = [
+  { name: "John", age: 20, surname: "Johnson" },
+  { name: "Pete", age: 18, surname: "Peterson" },
+  { name: "Ann", age: 19, surname: "Hathaway" },
+];
+
+users.sort(byField("name"));
+users.sort(byField("age"));
+
+alert(users);
+
+let div = document.querySelector("div");
+
+// replace div.outerHTML with <p>...</p>
+div.innerHTML = "<p>A new element</p>"; // (*)
+
+
+for (let li of document.querySelectorAll("li")) {
+  let title = li.firstChild.data;
+}
+
+
+let input = document.querySelector("input");
+alert(input.id);
+// attribute => property
+input.setAttribute("id", "id");
+alert(input.id); // id (updated)
+
+// property => attribute
+input.id = "newId";
+alert(input.getAttribute("id")); // newId (updated)
+
+
+//create a list
+let ul = document.createElement("ul");
+document.body.append(ul);
+
+while (true) {
+  let userText = prompt("Podaj jakąś wartość");
+
+  if (!userText) break;
+
+  let li = document.createElement("li");
+  li.textContent = userText;
+  ul.append(li);
+}
