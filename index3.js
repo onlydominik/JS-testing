@@ -739,7 +739,7 @@ while (true) {
   });
 
 
-  */
+
 
 function showNotification(options) {
   let div = document.createElement("div");
@@ -751,7 +751,19 @@ function showNotification(options) {
 }
 
 showNotification();
-
+  */
 //https://swimyoung.github.io/web-coordinates/ nice link with good width/height
 
 //https://swimyoung.github.io/web-coordinates/ nice link with good width/height
+
+let button = document.createElement("button");
+let div = document.querySelector(".hide");
+button.textContent = "Kliknij!";
+
+document.body.append(button);
+
+button.addEventListener("click", hideElem(div));
+
+function hideElem(elem) {
+  elem.style.display = "none";
+}
