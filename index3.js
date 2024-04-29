@@ -751,7 +751,7 @@ function showNotification(options) {
 }
 
 showNotification();
-  */
+
 //https://swimyoung.github.io/web-coordinates/ nice link with good width/height
 
 //https://swimyoung.github.io/web-coordinates/ nice link with good width/height
@@ -767,3 +767,38 @@ button.addEventListener("click", hideElem(div));
 function hideElem(elem) {
   elem.style.display = "none";
 }
+
+*/
+function move() {}
+
+let ball = document.querySelector("#ball");
+alert(ball.getBoundingClientRect().left);
+
+alert(ball.getBoundingClientRect().left);
+
+let field = document.querySelector("#field");
+
+function coordinates(event) {
+  let fieldCoords = this.getBoundingClientRect();
+  let ballWidth = ball.offsetWidth;
+  let ballHeight = ball.offsetHeight;
+
+  let ballCoords = {
+    top: event.clientY - fieldCoords.top - field.clientTop - ballHeight / 2,
+    left: event.clientX - fieldCoords.left - field.clientLeft - ballWidth / 2,
+  };
+
+  if (ballCoords.left < 0) ballCoords.left = 0;
+  if (ballCoords.top < 0) ballCoords.top = 0;
+
+  if (ballCoords.top + ball.clientHeight > field.clientHeight)
+    ballCoords.top = field.clientHeight - ball.clientHeight;
+
+  if (ballCoords.left + ball.clientWidth > field.clientWidth)
+    ballCoords.left = field.clientWidth - ball.clientWidth;
+
+  ball.style.left = ballCoords.left + "px";
+  ball.style.top = ballCoords.top + "px";
+}
+
+field.addEventListener("click", coordinates);
