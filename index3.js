@@ -768,7 +768,7 @@ function hideElem(elem) {
   elem.style.display = "none";
 }
 
-*/
+
 function move() {}
 
 let ball = document.querySelector("#ball");
@@ -802,3 +802,10 @@ function coordinates(event) {
 }
 
 field.addEventListener("click", coordinates);
+*/
+
+let menu = document.querySelector(".menu");
+
+menu.onclick = function () {
+  menu.classList.toggle("open");
+};

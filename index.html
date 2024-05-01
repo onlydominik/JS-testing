@@ -28,17 +28,39 @@
         body {
             height: 1000px;
         }
+
+        .menu ul {
+            display: none;
+        }
+
+        .title {
+            cursor: pointer;
+        }
+
+
+        .menu.open .title::before {
+            content: "▼ ";
+        }
+
+        .title::before {
+            content: "▶ ";
+        }
+
+        .menu.open ul {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
 
-    <div id="field">
-        <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . . . . . . . . . .
+    <div class="menu">
+        <span class="title">Sweeties (click me)!</span>
+        <ul>
+            <li>Cake</li>
+            <li>Donut</li>
+            <li>Honey</li>
+        </ul>
     </div>
 
 
