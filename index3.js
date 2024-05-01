@@ -802,10 +802,21 @@ function coordinates(event) {
 }
 
 field.addEventListener("click", coordinates);
-*/
+
 
 let menu = document.querySelector(".menu");
 
 menu.onclick = function () {
   menu.classList.toggle("open");
 };
+*/
+
+let articles = document.querySelectorAll(".articles .articles-item");
+
+for (let item of articles) {
+  item.querySelector(".close-button").onclick = function () {
+    item.remove();
+  };
+}
+
+alert(document.querySelectorAll(".articles .articles-item").length);
