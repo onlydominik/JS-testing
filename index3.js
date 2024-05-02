@@ -826,3 +826,12 @@ document.querySelector(".articles").onclick = function (event) {
   event.target.closest(".articles-item").remove();
 };
 */
+
+document.querySelector(".tree").onclick = function (event) {
+  if (event.target.tagName != "SPAN") return;
+
+  let elem = event.target.parentElement.children[1];
+
+  if (elem.hidden) return (elem.hidden = false);
+  elem.hidden = true;
+};
