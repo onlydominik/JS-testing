@@ -809,7 +809,7 @@ let menu = document.querySelector(".menu");
 menu.onclick = function () {
   menu.classList.toggle("open");
 };
-*/
+
 
 let articles = document.querySelectorAll(".articles .articles-item");
 
@@ -819,4 +819,10 @@ for (let item of articles) {
   };
 }
 
-alert(document.querySelectorAll(".articles .articles-item").length);
+
+document.querySelector(".articles").onclick = function (event) {
+  if (event.target.className != "close-button") return;
+
+  event.target.closest(".articles-item").remove();
+};
+*/
