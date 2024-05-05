@@ -898,4 +898,17 @@ document.onmouseout = function (event) {
   if (event.target.tagName != "BUTTON") return;
   tooltipElem.remove();
 };
+
+//confrim and default prevent
+contents.onclick = function (event) {
+  let target = event.target.closest("a");
+
+  function handleConfirm() {
+    let cos = confirm("Leave for " + target.getAttribute("href") + "?");
+    if (!cos) event.preventDefault();
+  }
+  if (target && contents.contains(target)) {
+    handleConfirm();
+  }
+};
 */
