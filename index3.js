@@ -825,7 +825,7 @@ document.querySelector(".articles").onclick = function (event) {
 
   event.target.closest(".articles-item").remove();
 };
-*/
+
 
 document.querySelector(".tree").onclick = function (event) {
   if (event.target.tagName != "SPAN") return;
@@ -835,3 +835,67 @@ document.querySelector(".tree").onclick = function (event) {
   if (elem.hidden) return (elem.hidden = false);
   elem.hidden = true;
 };
+
+
+document.querySelector("#grid").onclick = function (event) {
+  if (event.target.tagName != "TH") return;
+
+  let th = event.target;
+
+  sortGrid(th.cellIndex, th.dataset.type);
+};
+
+function sortGrid(colNum, type) {
+  let tbody = grid.querySelector("tbody");
+  let arrayRows = Array.from(tbody.rows);
+
+  alert(arrayRows);
+
+  let compare;
+  switch (type) {
+    case "number":
+      compare = function (a, b) {
+        return a.cells[colNum].innerHTML - b.cells[colNum].innerHTML;
+      };
+      break;
+
+    case "string":
+      compare = function (rowA, rowB) {
+        alert(colNum);
+        return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML
+          ? 1
+          : -1;
+      };
+      break;
+  }
+
+  arrayRows.sort(compare);
+
+  tbody.append(...arrayRows);
+}
+
+
+//Tooltip button elem
+let tooltipElem = document.createElement("div");
+
+document.onmouseover = function (event) {
+  if (event.target.tagName != "BUTTON") return;
+
+  tooltipElem.innerHTML = event.target.dataset.tooltip;
+  let buttonOutHeight = document
+    .querySelector("button")
+    .getBoundingClientRect();
+
+  event.target.prepend(tooltipElem);
+
+  tooltipElem.style.top = -tooltipElem.offsetHeight - 10 + "px";
+
+  if (tooltipElem.offsetHeight + 10 > buttonOutHeight.top)
+    tooltipElem.style.top = event.target.offsetHeight + 10 + "px";
+};
+
+document.onmouseout = function (event) {
+  if (event.target.tagName != "BUTTON") return;
+  tooltipElem.remove();
+};
+*/
