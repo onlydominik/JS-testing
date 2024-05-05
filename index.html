@@ -35,35 +35,56 @@
 
         }
 
-        button {
-            position: relative;
+        ul {
             display: flex;
-            justify-content: start;
-            float: left;
+            gap: 10px;
         }
 
-        div {
-            position: absolute;
-            background-color: white;
-            color: black;
-            border: 1px solid black;
-            padding: 5px;
-            white-space: nowrap;
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+
+        li {
+            list-style-type: none;
+            cursor: pointer;
+            border: 1px solid orange;
+        }
+
+        #largeImg {
+            width: 300px;
         }
     </style>
 </head>
 
 <body>
-    <fieldset id="contents">
-        <legend>#contents</legend>
-        <p>
-            How about to read <a href="https://wikipedia.org">Wikipedia</a> or visit <a
-                href="https://w3.org"><i>W3.org</i></a> and learn about<a href="wp.pl"><i>cos<i>
-                        cos</i>
-                </i></a> modern standards?
-        </p>
-    </fieldset>
+    <p><img id="largeImg" src="https://en.js.cx/gallery/img1-lg.jpg" alt="Large image"></p>
 
+    <ul id="thumbs">
+        <!-- the browser shows a small built-in tooltip on hover with the text from "title" attribute -->
+        <li>
+            <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Image 2"><img
+                    src="https://en.js.cx/gallery/img2-thumb.jpg"></a>
+        </li>
+        <li>
+            <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Image 3"><img
+                    src="https://en.js.cx/gallery/img3-thumb.jpg"></a>
+        </li>
+        <li>
+            <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Image 4"><img
+                    src="https://en.js.cx/gallery/img4-thumb.jpg"></a>
+        </li>
+        <li>
+            <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Image 5"><img
+                    src="https://en.js.cx/gallery/img5-thumb.jpg"></a>
+        </li>
+        <li>
+            <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6"><img
+                    src="https://en.js.cx/gallery/img6-thumb.jpg"></a>
+        </li>
+    </ul>
     <script src="index3.js"></script>
 </body>
 

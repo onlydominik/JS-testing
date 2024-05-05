@@ -911,4 +911,11 @@ contents.onclick = function (event) {
     handleConfirm();
   }
 };
+
+
+thumbs.onclick = function (event) {
+  if (!event.target.closest("a")) return;
+  largeImg.src = event.target.closest("a").href;
+  if (event.target.closest("a")) return false;
+};
 */
