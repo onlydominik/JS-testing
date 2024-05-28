@@ -919,3 +919,22 @@ thumbs.onclick = function (event) {
   if (event.target.closest("a")) return false;
 };
 */
+
+document.onclick = function (event) {
+  if (event.target.tagName != "LI") return false;
+  event.target.onmousedown = function () {
+    return false;
+  };
+  let lis = ul.querySelectorAll("li");
+
+  if (event.ctrlKey || event.metaKey) {
+    event.target.classList.toggle("green");
+    return;
+  }
+  for (let li of lis) {
+    if (li.classList.contains("green")) {
+      li.classList.remove("green");
+    }
+  }
+  event.target.classList.add("green");
+};

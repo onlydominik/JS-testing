@@ -6,38 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h2 {
-            margin: 0;
-            padding: 0;
-        }
-
-        #field {
-            width: 200px;
-            height: 150px;
-            border: 10px solid black;
-            background-color: #00FF00;
-            overflow: hidden;
-            cursor: pointer;
-            position: relative;
-        }
-
-
-        #ball {
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: all 1s;
-
-        }
-
         body {
             height: 1000px;
 
         }
 
-        ul {
-            display: flex;
-            gap: 10px;
+        li {
+            cursor: pointer;
+        }
+
+        .green {
+            background-color: lightgreen;
+
         }
 
         * {
@@ -45,45 +25,20 @@
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
         }
-
-
-        li {
-            list-style-type: none;
-            cursor: pointer;
-            border: 1px solid orange;
-        }
-
-        #largeImg {
-            width: 300px;
-        }
     </style>
 </head>
 
 <body>
-    <p><img id="largeImg" src="https://en.js.cx/gallery/img1-lg.jpg" alt="Large image"></p>
 
-    <ul id="thumbs">
-        <!-- the browser shows a small built-in tooltip on hover with the text from "title" attribute -->
-        <li>
-            <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Image 2"><img
-                    src="https://en.js.cx/gallery/img2-thumb.jpg"></a>
-        </li>
-        <li>
-            <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Image 3"><img
-                    src="https://en.js.cx/gallery/img3-thumb.jpg"></a>
-        </li>
-        <li>
-            <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Image 4"><img
-                    src="https://en.js.cx/gallery/img4-thumb.jpg"></a>
-        </li>
-        <li>
-            <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Image 5"><img
-                    src="https://en.js.cx/gallery/img5-thumb.jpg"></a>
-        </li>
-        <li>
-            <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6"><img
-                    src="https://en.js.cx/gallery/img6-thumb.jpg"></a>
-        </li>
+    Click on a list item to select it.
+    <br>
+
+    <ul id="ul">
+        <li>Christopher Robin</li>
+        <li>Winnie-the-Pooh</li>
+        <li>Tigger</li>
+        <li>Kanga</li>
+        <li>Rabbit. Just rabbit.</li>
     </ul>
     <script src="index3.js"></script>
 </body>
