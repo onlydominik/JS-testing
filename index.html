@@ -7,39 +7,25 @@
     <title>Document</title>
     <style>
         body {
-            height: 1000px;
-
+            height: 2000px;
+            /* the tooltip should work after page scroll too */
         }
 
-        li {
-            cursor: pointer;
-        }
-
-        .green {
-            background-color: lightgreen;
-
-        }
-
-        * {
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
+        .slider {
+            background-color: grey;
+            width: 200px;
+            height: 15px;
+            border-radius: 5px;
         }
     </style>
 </head>
 
 <body>
 
-    Click on a list item to select it.
-    <br>
 
-    <ul id="ul">
-        <li>Christopher Robin</li>
-        <li>Winnie-the-Pooh</li>
-        <li>Tigger</li>
-        <li>Kanga</li>
-        <li>Rabbit. Just rabbit.</li>
-    </ul>
+    <div id="slider" class="slider">
+        <div class="thumb"></div>
+    </div>
     <script src="index3.js"></script>
 </body>
 

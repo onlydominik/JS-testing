@@ -918,8 +918,8 @@ thumbs.onclick = function (event) {
   largeImg.src = event.target.closest("a").href;
   if (event.target.closest("a")) return false;
 };
-*/
 
+//selecting items with and without pressed button
 document.onclick = function (event) {
   if (event.target.tagName != "LI") return false;
   event.target.onmousedown = function () {
@@ -938,3 +938,47 @@ document.onclick = function (event) {
   }
   event.target.classList.add("green");
 };
+
+*/ let divek = document.createElement("div");
+
+let currentElem = null;
+
+house.onmouseover = function (event) {
+  console.log(event.relatedTarget);
+  if (currentElem) return;
+
+  let target = event.target.closest("[data-tooltip]");
+
+  if (!target) return;
+
+  currentElem = target;
+  onEnter(currentElem);
+
+  console.log(event.target.getAttribute("data-tooltip") + "ENTER");
+};
+
+house.onmouseout = function (event) {
+  if (!currentElem) return;
+
+  let relatedTarget = event.relatedTarget;
+
+  while (relatedTarget) {
+    if (relatedTarget == currentElem) return;
+
+    relatedTarget = relatedTarget.parentNode;
+  }
+  onLeave(currentElem);
+  currentElem = null;
+
+  console.log(event.target.getAttribute("data-tooltip") + "OUT");
+};
+
+function onEnter(elem) {
+  divek.classList.add("tooltip");
+  divek.innerHTML = elem.getAttribute("data-tooltip");
+  elem.append(divek);
+}
+
+function onLeave(elem) {
+  divek.remove();
+}
