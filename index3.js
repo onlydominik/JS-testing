@@ -939,7 +939,7 @@ document.onclick = function (event) {
   event.target.classList.add("green");
 };
 
-*/ let divek = document.createElement("div");
+ let divek = document.createElement("div");
 
 let currentElem = null;
 
@@ -982,3 +982,35 @@ function onEnter(elem) {
 function onLeave(elem) {
   divek.remove();
 }
+
+function populate() {
+  while (true) {
+    // document bottom
+    let windowRelativeBottom =
+      document.documentElement.getBoundingClientRect().bottom;
+
+    // if the user hasn't scrolled far enough (>100px to the end)
+    if (windowRelativeBottom > document.documentElement.clientHeight + 100)
+      break;
+
+    // let's add more data
+    document.body.insertAdjacentHTML("beforeend", `<p>Date: ${new Date()}</p>`);
+  }
+}
+
+populate();
+*/
+
+let elem2 = document.getElementById("matrix");
+let elem = document.getElementById("arrowTop");
+
+elem.addEventListener("click", function () {
+  console.log(document.documentElement.clientHeight);
+  console.log(window.pageYOffset);
+  document.documentElement.scrollTop = 0;
+});
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset > document.documentElement.clientHeight) {
+    elem.style.display = "block";
+  } else elem.style.display = "none";
+});
