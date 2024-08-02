@@ -999,7 +999,7 @@ function populate() {
 }
 
 populate();
-*/
+
 
 let elem2 = document.getElementById("matrix");
 let elem = document.getElementById("arrowTop");
@@ -1014,3 +1014,37 @@ window.addEventListener("scroll", function () {
     elem.style.display = "block";
   } else elem.style.display = "none";
 });
+
+let newElem = new Option("Classic", "classic", true, true);
+
+document.getElementById("genres").appendChild(newElem);
+
+let btn = document.getElementById("nowy");
+btn.addEventListener("click", function () {
+  for (elem of genres) {
+    if (elem.selected == true) alert(elem.text);
+
+  }
+});
+
+let oneDiv = document.getElementById("view");
+let textArea = null;
+
+oneDiv.onclick = function () {
+  textArea = document.createElement("textarea");
+  textArea.className = "edit";
+  textArea.value = oneDiv.innerHTML;
+
+  textArea.onkeydown = function (event) {
+    if (event.key == "Enter") {
+      this.blur();
+    }
+  };
+  textArea.onblur = function () {
+    textArea.replaceWith(oneDiv);
+    oneDiv.innerHTML = textArea.value;
+  };
+  oneDiv.replaceWith(textArea);
+  textArea.focus();
+};
+*/

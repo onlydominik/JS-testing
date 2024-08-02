@@ -5,52 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        body,
-        html {
-            height: 100%;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-        }
-
-        #matrix {
+        .view,
+        .edit {
+            height: 150px;
             width: 400px;
-            margin: auto;
-            overflow: auto;
-            text-align: justify;
+            font-family: sans-serif;
+            font-size: 14px;
+            display: block;
         }
 
-        #arrowTop {
-            height: 9px;
-            width: 14px;
-            color: green;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            cursor: pointer;
-
+        .view {
+            /* padding + border = 3px */
+            padding: 2px;
+            border: 1px solid black;
         }
 
-        #arrowTop::before {
-            content: '▲';
+        .edit {
+            /* replace padding with border (still 3px not to shift the contents) */
+            border: 3px solid blue;
+            padding: 0px;
+        }
+
+        .edit:focus {
+            /* remove focus border in Safari */
+            outline: none;
         }
     </style>
 </head>
 
 <body>
+    <ul>
+        <li>Click the div to edit.</li>
+        <li>Enter or blur saves the result.</li>
+    </ul>
 
+    HTML is allowed.
 
-    <div id="matrix">
-        <script>
-            for (let i = 0; i < 2000; i++) document.writeln(i)
+    <div id="view" class="view">Text</div>
 
-
-        </script>
-    </div>
-
-    <div id="arrowTop"></div>
 
     <script src="index3.js"></script>
 </body>
