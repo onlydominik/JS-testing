@@ -1079,3 +1079,30 @@ table.onclick = function (event) {
   clicked.appendChild(textArea);
   textArea.focus();
 };
+*/
+
+mouse.tabIndex = 0;
+
+mouse.onclick = function () {
+  this.style.top = this.getBoundingClientRect().top + "px";
+  this.style.left = this.getBoundingClientRect().left + "px";
+
+  this.style.position = "absolute";
+};
+
+mouse.onkeydown = function (event) {
+  switch (event.key) {
+    case "ArrowLeft":
+      this.style.left = parseInt(this.style.left) - this.offsetWidth + "px";
+      return;
+    case "ArrowRight":
+      this.style.left = parseInt(this.style.left) + this.offsetWidth + "px";
+      return;
+    case "ArrowUp":
+      this.style.top = parseInt(this.style.top) - this.offsetHeight + "px";
+      return;
+    case "ArrowDown":
+      this.style.top = parseInt(this.style.top) + this.offsetHeight + "px";
+      return;
+  }
+};
