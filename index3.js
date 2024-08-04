@@ -1047,4 +1047,35 @@ oneDiv.onclick = function () {
   oneDiv.replaceWith(textArea);
   textArea.focus();
 };
-*/
+ clicked.innerHTML = textArea.value;
+
+    textArea.replaceWith(clicked);
+
+
+
+let table = document.getElementById("bagua-table");
+let clicked = null;
+table.onclick = function (event) {
+  let target = event.target;
+  let textArea = document.createElement("textarea");
+  textArea.style.width = target.clientWidth + "px";
+
+  target.style.padding = 0;
+  target.style.margin = 0;
+  target.style.border = "none";
+  textArea.style.height = target.clientHeight + "px";
+  textArea.classList.add("textArea");
+  let btn1 = document.createElement("button");
+  let btn2 = document.createElement("button");
+  btn1.innerHTML = "OK";
+  btn2.innerHTML = "Cancel";
+  btn1.classList.add("btn");
+  btn2.classList.add("btn");
+  textArea.value = target.innerHTML;
+  if (target.tagName != "TD") return;
+  clicked = target;
+
+  clicked.innerHTML = "";
+  clicked.appendChild(textArea);
+  textArea.focus();
+};
