@@ -1,51 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .view,
-        .edit {
-            height: 150px;
-            width: 400px;
-            font-family: sans-serif;
-            font-size: 14px;
-            display: block;
-        }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
 
-        .view {
-            /* padding + border = 3px */
-            padding: 2px;
-            border: 1px solid black;
-        }
+      #prompt-form {
+        display: inline-block;
+        padding: 5px 5px 5px 70px;
+        width: 200px;
+        border: 1px solid black;
+        background: white url(https://en.js.cx/clipart/prompt.png) no-repeat
+          left 5px;
+        vertical-align: middle;
+      }
 
-        .edit {
-            /* replace padding with border (still 3px not to shift the contents) */
-            border: 3px solid blue;
-            padding: 0px;
-        }
+      #prompt-form-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: none;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      }
 
-        .edit:focus {
-            /* remove focus border in Safari */
-            outline: none;
-        }
+      #prompt-form-container:before {
+        display: inline-block;
+        height: 100%;
+        content: "";
+        vertical-align: middle;
+      }
+
+      #prompt-form input[name="text"] {
+        display: block;
+        margin: 5px;
+        width: 180px;
+      }
+
+      #coverDiv {
+        background-color: grey;
+        opacity: 60%;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      #btn-call-prompt {
+        position: fixed;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <ul>
-        <li>Click the div to edit.</li>
-        <li>Enter or blur saves the result.</li>
-    </ul>
-
-    HTML is allowed.
-
-    <div id="view" class="view">Text</div>
-
+  <body>
+    <h2>Click for pop-up!</h2>
+    <button id="btn-call-prompt">CLICK HERE</button>
+    <div id="prompt-form-container">
+      <form id="prompt-form">
+        <div id="prompt-message">Enter something... <br />Please..</div>
+        <input name="text" type="text" />
+        <input type="submit" value="Ok" />
+        <input type="button" name="cancel" value="Cancel" />
+      </form>
+    </div>
 
     <script src="index3.js"></script>
-</body>
-
+  </body>
 </html>
