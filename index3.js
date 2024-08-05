@@ -1047,7 +1047,7 @@ oneDiv.onclick = function () {
   oneDiv.replaceWith(textArea);
   textArea.focus();
 };
-*/
+
 let testowe;
 
 if (testowe) {
@@ -1055,3 +1055,138 @@ if (testowe) {
 } else {
   alert(false);
 }
+
+clicked.innerHTML = textArea.value;
+
+    textArea.replaceWith(clicked);
+
+
+
+let table = document.getElementById("bagua-table");
+let clicked = null;
+table.onclick = function (event) {
+  let target = event.target;
+  let textArea = document.createElement("textarea");
+  textArea.style.width = target.clientWidth + "px";
+
+  target.style.padding = 0;
+  target.style.margin = 0;
+  target.style.border = "none";
+  textArea.style.height = target.clientHeight + "px";
+  textArea.classList.add("textArea");
+  let btn1 = document.createElement("button");
+  let btn2 = document.createElement("button");
+  btn1.innerHTML = "OK";
+  btn2.innerHTML = "Cancel";
+  btn1.classList.add("btn");
+  btn2.classList.add("btn");
+  textArea.value = target.innerHTML;
+  if (target.tagName != "TD") return;
+  clicked = target;
+
+  clicked.innerHTML = "";
+  clicked.appendChild(textArea);
+  textArea.focus();
+};
+
+
+mouse.tabIndex = 0;
+
+mouse.onclick = function () {
+  this.style.top = this.getBoundingClientRect().top + "px";
+  this.style.left = this.getBoundingClientRect().left + "px";
+
+  this.style.position = "absolute";
+};
+
+mouse.onkeydown = function (event) {
+  switch (event.key) {
+    case "ArrowLeft":
+      this.style.left = parseInt(this.style.left) - this.offsetWidth + "px";
+      return;
+    case "ArrowRight":
+      this.style.left = parseInt(this.style.left) + this.offsetWidth + "px";
+      return;
+    case "ArrowUp":
+      this.style.top = parseInt(this.style.top) - this.offsetHeight + "px";
+      return;
+    case "ArrowDown":
+      this.style.top = parseInt(this.style.top) + this.offsetHeight + "px";
+      return;
+  }
+};
+let result = Math.round(initial * (1 + interest) ** years);
+
+let form = document.forms.calculator;
+
+form.onchange = function () {
+  let result = Math.round(
+    form.money.value *
+      (1 + form.interest.value / 100) ** (form.months.value / 12)
+  );
+  console.log(result);
+
+  document.getElementById("money-before").innerHTML = form.money.value;
+  document.getElementById("money-after").innerHTML = result;
+
+  let height = (result / form.money.value) * 100 + "px";
+  document.getElementById("height-after").style.height = height;
+};
+document.body.append(coverDiv);
+
+
+let coverDiv = document.createElement("div");
+coverDiv.id = "coverDiv";
+
+let prompt = document.getElementById("prompt-form-container");
+let btn = document.getElementById("btn-call-prompt");
+let form = document.getElementById("prompt-form");
+
+btn.onclick = function () {
+  let html = "Cos nowego";
+
+  showPrompt(html, form.text.value);
+};
+
+function showPrompt(html, callback) {
+  prompt.style.display = "block";
+  document.body.append(coverDiv);
+  document.getElementById("prompt-message").innerHTML = html;
+  document.body.style.overflowY = "hidden";
+
+  form.text.focus();
+  form.onsubmit = function (event) {
+    if (form.text.value == "") return false;
+    else {
+      callback(form.text.value);
+    }
+  };
+
+  document.onkeydown = function (e) {
+    if (e.key == "Escape") callback(null);
+  };
+  form.cancel.onclick = function () {
+    callback(null);
+  };
+
+  function callback(value) {
+    alert(value);
+    form.submit();
+  }
+  let lastElem = form.elements[form.elements.length - 1];
+  let firstElem = form.elements[0];
+
+  lastElem.onkeydown = function (e) {
+    if (e.key == "Tab" && !e.shiftKey) {
+      firstElem.focus();
+      return false;
+    }
+  };
+
+  firstElem.onkeydown = function (e) {
+    if (e.key == "Tab" && e.shiftKey) {
+      lastElem.focus();
+      return false;
+    }
+  };
+}*/
