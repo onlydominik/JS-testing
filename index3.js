@@ -1048,3 +1048,10 @@ oneDiv.onclick = function () {
   textArea.focus();
 };
 */
+let testowe;
+
+if (testowe) {
+  alert(testowe);
+} else {
+  alert(false);
+}
