@@ -1079,7 +1079,7 @@ table.onclick = function (event) {
   clicked.appendChild(textArea);
   textArea.focus();
 };
-*/
+
 
 mouse.tabIndex = 0;
 
@@ -1106,3 +1106,78 @@ mouse.onkeydown = function (event) {
       return;
   }
 };
+let result = Math.round(initial * (1 + interest) ** years);
+
+let form = document.forms.calculator;
+
+form.onchange = function () {
+  let result = Math.round(
+    form.money.value *
+      (1 + form.interest.value / 100) ** (form.months.value / 12)
+  );
+  console.log(result);
+
+  document.getElementById("money-before").innerHTML = form.money.value;
+  document.getElementById("money-after").innerHTML = result;
+
+  let height = (result / form.money.value) * 100 + "px";
+  document.getElementById("height-after").style.height = height;
+};
+document.body.append(coverDiv);
+
+
+let coverDiv = document.createElement("div");
+coverDiv.id = "coverDiv";
+
+let prompt = document.getElementById("prompt-form-container");
+let btn = document.getElementById("btn-call-prompt");
+let form = document.getElementById("prompt-form");
+
+btn.onclick = function () {
+  let html = "Cos nowego";
+
+  showPrompt(html, form.text.value);
+};
+
+function showPrompt(html, callback) {
+  prompt.style.display = "block";
+  document.body.append(coverDiv);
+  document.getElementById("prompt-message").innerHTML = html;
+  document.body.style.overflowY = "hidden";
+
+  form.text.focus();
+  form.onsubmit = function (event) {
+    if (form.text.value == "") return false;
+    else {
+      callback(form.text.value);
+    }
+  };
+
+  document.onkeydown = function (e) {
+    if (e.key == "Escape") callback(null);
+  };
+  form.cancel.onclick = function () {
+    callback(null);
+  };
+
+  function callback(value) {
+    alert(value);
+    form.submit();
+  }
+  let lastElem = form.elements[form.elements.length - 1];
+  let firstElem = form.elements[0];
+
+  lastElem.onkeydown = function (e) {
+    if (e.key == "Tab" && !e.shiftKey) {
+      firstElem.focus();
+      return false;
+    }
+  };
+
+  firstElem.onkeydown = function (e) {
+    if (e.key == "Tab" && e.shiftKey) {
+      lastElem.focus();
+      return false;
+    }
+  };
+}*/
